@@ -1,36 +1,96 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { exportComponentAsPNG } from "react-component-export-image";
 import { Spacer } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import keccak256 from "keccak256";
 import MerkleTree from "merkletreejs";
 import ABI from "../pages/JSON/ABI.json";
-import CampusAmbassadors from "../pages/JSON/CampusAmbassadors.json";
-import Mentors from "../pages/JSON/Mentors.json";
-import OpenSourceAdvocates from "../pages/JSON/OpenSourceAdvocates.json";
-import OrganizingTeam from "../pages/JSON/OrganizingTeam.json";
-import ProjectAdmins from "../pages/JSON/ProjectAdmins.json";
+// import CampusAmbassadors from "../pages/JSON/2023/CampusAmbassadors.json";
+// import Mentors from "../pages/JSON/2023/Mentors.json";
+// import OpenSourceAdvocates from "../pages/JSON/2023/OpenSourceAdvocates.json";
+// import OrganizingTeam from "../pages/JSON/2023/OrganizingTeam.json";
+// import ProjectAdmins from "../pages/JSON/2023/ProjectAdmins.json";
 // import Top100 from "../pages/JSON/Top100.json";                // Data From 2022
 // import Contributors from "../pages/JSON/Contributors.json";    // Data From 2022
-import Contributors from "../pages/JSON/2023 Contributors/Contributors.json";
-import Top100 from "../pages/JSON/2023 Contributors/Top100.json";
+// import Contributors from "../pages/JSON/2023/Contributors.json";
+// import Top100 from "../pages/JSON/2023/Top100.json";
 import Confetti from "react-confetti";
+import axios from "axios";
 const contractAddress = "0x0E2195E4292458eaA9Ee30242Fce440b5a722944";
 
 const Certi_Comp = (props) => {
   const [showConfetti, setShowConfetti] = useState(false);
   const certificateWrapper = React.createRef();
+  const [CampusAmbassadors, setCampusAmbassadors] = useState([]);
+  const [Contributors, setContributors] = useState([]);
+  const [Mentors, setMentors] = useState([]);
+  const [OpenSourceAdvocates, setOpenSourceAdvocates] = useState([]);
+  const [OrganizingTeam, setOrganizingTeam] = useState([]);
+  const [ProjectAdmins, setProjectAdmins] = useState([]);
+  const [Top100, setTop100] = useState([]);
+  useEffect(() => {
+    const getCertificateData = async () => {
+      try {
+        const resCA = await fetch(
+          `/certificatesData/${props.year}/CampusAmbassadors.json`
+        );
+        const dataCA = await resCA.json();
+        const resC = await fetch(
+          `/certificatesData/${props.year}/Contributors.json`
+        );
+        const dataC = await resC.json();
+        const resM = await fetch(
+          `/certificatesData/${props.year}/Mentors.json`
+        );
+        const dataM = await resM.json();
+        const resOSA = await fetch(
+          `/certificatesData/${props.year}/OpenSourceAdvocates.json`
+        );
+        const dataOSA = await resOSA.json();
+        const resOT = await fetch(
+          `/certificatesData/${props.year}/OrganizingTeam.json`
+        );
+        const dataOT = await resOT.json();
+        const resPA = await fetch(
+          `/certificatesData/${props.year}/ProjectAdmins.json`
+        );
+        const dataPA = await resPA.json();
+        const resT100 = await fetch(
+          `/certificatesData/${props.year}/Top100.json`
+        );
+        const dataT100 = await resT100.json();
+        setCampusAmbassadors(dataCA);
+        setContributors(dataC);
+        setMentors(dataM);
+        setOpenSourceAdvocates(dataOSA);
+        setOrganizingTeam(dataOT);
+        setProjectAdmins(dataPA);
+        setTop100(dataT100);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCertificateData();
+  }, [props.year]);
 
   const DownloadImage = (e) => {
     e.preventDefault();
     if (typeof window !== "undefined" && props.verified === true) {
+      certificateWrapper.current.classList.add("export-mode");
+
       exportComponentAsPNG(
         certificateWrapper,
-        { fileName: props.Name + "_Cert_" + props.Role + "_GSSoC2023.png" },
+        {
+          fileName:
+            props.Name + "_Cert_" + props.Role + `_GSSoC${props.year}.png`,
+        },
         {
           html2CanvasOptions: { backgroundColor: null },
         }
-      );
+      ).then(() => {
+        // Remove the export-specific class after exporting
+        certificateWrapper.current.classList.remove("export-mode");
+      });
     }
   };
 
@@ -76,8 +136,8 @@ const Certi_Comp = (props) => {
   };
 
   const checkIfVerified = (email) => {
-    const lowerCaseEmail = email.toLowerCase(); // Convert email to lowercase 
-    
+    const lowerCaseEmail = email.toLowerCase(); // Convert email to lowercase
+
     // check if lowerCaseEmail is in the verified json
     // if yes, setVerifiedTrue()
 
@@ -145,7 +205,7 @@ const Certi_Comp = (props) => {
     }
 
     return false;
-  }
+  };
 
   async function Checker(email) {
     // let singleParticipant = keccak256(
@@ -156,7 +216,6 @@ const Certi_Comp = (props) => {
     // const merkleProof = tree.getHexProof(keccak256(singleParticipant));
 
     // console.log("singleParticipant", singleParticipant);
-
 
     // const toTheMoon =
     //   props.Role === "Contributor"
@@ -196,8 +255,9 @@ const Certi_Comp = (props) => {
       }, 8000);
     } else {
       console.log("Never gonna give you up...");
-      const ver_failed =
-        "Verification failed.💀\nPlease recheck if you have entered the correct email (used to register in GSSoC'23) & selected the appropriate role from the dropdown. \n\nIf you still feel something is wrong, feel free to make a ticket on the official server regarding the same.";
+      const ver_failed = `Verification failed.💀\nPlease recheck if you have entered the correct email (used to register in GSSoC'${props?.year.slice(
+        2
+      )}) & selected the appropriate role from the dropdown. \n\nIf you still feel something is wrong, feel free to make a ticket on the official server regarding the same.`;
       alert(ver_failed);
     }
   }
@@ -227,43 +287,85 @@ const Certi_Comp = (props) => {
       <div className="flex justify-center" id="cert">
         {/* <Image src="/cert.png" height="700" width="1000" alt="Certificate"/> */}
         {props.Role === "Contributor" ? (
-          <div className="banner cert-contrib" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_Contrib_Cert.png)`,
+            }}
+            className={`banner cert-contrib bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Top Contributor" ? (
-          <div className="banner cert-topcontrib" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_TopContrib_Cert.png)`,
+            }}
+            className={`banner cert-topcontrib bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Mentor" ? (
-          <div className="banner cert-mentor" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_Mentor_Cert.png)`,
+            }}
+            className={`banner cert-mentor bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Project Admin" ? (
-          <div className="banner cert-pa" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_PA_Cert.png)`,
+            }}
+            className={`banner cert-pa bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Campus Ambassador" ? (
-          <div className="banner cert-ca" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_CA_Cert.png)`,
+            }}
+            className={`banner cert-ca bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Speaker" ? (
-          <div className="banner cert-speaker" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_OSAdvocate_Cert.png)`,
+            }}
+            className={`banner cert-speaker bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>
           </div>
         ) : props.Role === "Organizing Team" ? (
-          <div className="banner cert-orgteam" ref={certificateWrapper}>
+          <div
+            style={{
+              backgroundImage: `url(/certificates/${props.year}/GSSoC_Organiser_Cert.png)`,
+            }}
+            className={`banner cert-orgteam bg-no-repeat`}
+            ref={certificateWrapper}
+          >
             <div id="contrib_name" className="contrib_name text-big-orange">
               {props.Name}
             </div>

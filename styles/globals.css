@@ -526,41 +526,39 @@ html {
 }
 
 .cert-contrib {
-  background: url(/GSSoC_Contrib_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-topcontrib {
-  background: url(/GSSoC_TopContrib_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-mentor {
-  background: url(/GSSoC_Mentor_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-pa {
-  background: url(/GSSoC_PA_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-ca {
-  background: url(/GSSoC_CA_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-speaker {
-  background: url(/GSSoC_OSAdvocate_Cert.png) no-repeat;
   background-size: contain;
 }
 .cert-orgteam {
-  background: url(/GSSoC_Organiser_Cert.png) no-repeat;
   background-size: contain;
 }
 
 .contrib_name {
   position: absolute;
-  top: 44%;
+  top: 46%;
   left: 64%;
   transform: translate(-50%, -50%);
 }
 
+.export-mode .contrib_name {
+  top: 31.25%;
+  left: 64%;
+  transform: translate(-50%, -50%);
+}
 .text-big-orange {
   font-size: 30px;
   font-weight: bold;
