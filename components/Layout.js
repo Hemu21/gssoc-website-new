@@ -34,12 +34,6 @@ const Layout = ({ children }) => {
   } else {
     return (
       <div className="transition-colors dark:bg-darkmode_gray-0 dark:transition-colors">
-        {/* <Navbar />
-        {children}
-        <div className="hidden lg:block">
-          <ScrollToTop />
-        </div>
-        <Footer /> */}
         <ComingSoon />
       </div>
     );

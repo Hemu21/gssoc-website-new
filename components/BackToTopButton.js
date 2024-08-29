@@ -22,7 +22,7 @@ const ButtonContainer = styled.span`
   z-index: 1000;
   cursor: pointer;
   animation: fadeIn 0.3s;
-  background: ${({ isNearBottom , isWobRoute }) => (isNearBottom ? "black" : isWobRoute?"#00008B": "#ff6024")};
+  background: ${({ isNearBottom }) => (isNearBottom ? "black" : "#ff6024")};
   opacity: ${({ isNearBottom }) => (isNearBottom ? 0.7 : 1)};
   border-radius: 50%;
   transition: opacity 0.4s, background ease-in-out 0.2s, transform 0.2s;
@@ -31,7 +31,7 @@ const ButtonContainer = styled.span`
 
   &:hover {
     opacity: 1;
-    background: ${({ isNearBottom, isWobRoute }) => (isNearBottom ? "black" : isWobRoute?"#85C6DC": "#ff733f")};
+    background: ${({ isNearBottom }) => (isNearBottom ? "black" : "#ff733f")};
     transform: scale(1.04);
 
     svg {

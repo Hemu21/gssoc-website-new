@@ -8,7 +8,7 @@ const resend = new Resend(apiKey);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { firstName, lastName, email, phoneNumber, message, isWob } =
+    const { firstName, lastName, email, phoneNumber, message } =
       req.body;
 
     // Render the ContactFormEmail component into HTML markup
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     try {
       await resend.emails.send({
         from: "Contact Form <onboarding@resend.dev>",
-        to: isWob ? "wob@girlscript.tech" : "gssoc@girlscript.tech",
+        to: "gssoc@girlscript.tech",
         subject: "New message from contact form",
         reply_to: email,
         html: htmlContent,

@@ -1,7 +1,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ThemeChanger = ({isTrue}) => {
+const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -14,7 +14,7 @@ const ThemeChanger = ({isTrue}) => {
     <div>
       {theme === "light" ? (
         <img
-          src={isTrue?"/WoB/wobToggler.png":"https://user-images.githubusercontent.com/64256342/151416170-51c1f8ec-28bd-41b0-bf9c-837509e5460e.png"}
+          src={"https://user-images.githubusercontent.com/64256342/151416170-51c1f8ec-28bd-41b0-bf9c-837509e5460e.png"}
           onClick={() => setTheme("dark")}
           className="h-6 w-6 lg:block"
           alt="Switch to dark theme"

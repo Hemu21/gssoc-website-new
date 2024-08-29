@@ -5,15 +5,6 @@ import { ethers } from "ethers";
 import keccak256 from "keccak256";
 import MerkleTree from "merkletreejs";
 import ABI from "../pages/JSON/ABI.json";
-// import CampusAmbassadors from "../pages/JSON/2023/CampusAmbassadors.json";
-// import Mentors from "../pages/JSON/2023/Mentors.json";
-// import OpenSourceAdvocates from "../pages/JSON/2023/OpenSourceAdvocates.json";
-// import OrganizingTeam from "../pages/JSON/2023/OrganizingTeam.json";
-// import ProjectAdmins from "../pages/JSON/2023/ProjectAdmins.json";
-// import Top100 from "../pages/JSON/Top100.json";                // Data From 2022
-// import Contributors from "../pages/JSON/Contributors.json";    // Data From 2022
-// import Contributors from "../pages/JSON/2023/Contributors.json";
-// import Top100 from "../pages/JSON/2023/Top100.json";
 import Confetti from "react-confetti";
 import axios from "axios";
 import html2canvas from "html2canvas";
@@ -119,13 +110,6 @@ const Certi_Comp = (props) => {
     return tree;
   }
 
-  // const projectAdminsTree = treeMaker(ProjectAdmins);
-  // const mentorsTree = treeMaker(Mentors);
-  // const contributorsTree = treeMaker(Contributors);
-  // const top100Tree = treeMaker(Top100);
-  // const campusAmbassadorsTree = treeMaker(CampusAmbassadors);
-  // const openSourceAdvocatesTree = treeMaker(OpenSourceAdvocates);
-  // const organizingTeamTree = treeMaker(OrganizingTeam);
 
   const setVerifiedTrue = () => {
     props.setVerified();
@@ -212,38 +196,7 @@ const Certi_Comp = (props) => {
   };
 
   async function Checker(email) {
-    // let singleParticipant = keccak256(
-    //   JSON.stringify({
-    //     email: email,
-    //   })
-    // ).toString("hex");
-    // const merkleProof = tree.getHexProof(keccak256(singleParticipant));
-
-    // console.log("singleParticipant", singleParticipant);
-
-    // const toTheMoon =
-    //   props.Role === "Contributor"
-    //     ? await contractWithWallet.verifyContributors(
-    //       merkleProof,
-    //       singleParticipant
-    //     )
-    //     : props.Role === "Top Contributor"
-    //       ? await contractWithWallet.verifyTop100(merkleProof, singleParticipant)
-    //       : props.Role === "Mentor"
-    //         ? await contractWithWallet.verifyMentors(merkleProof, singleParticipant)
-    //         : props.Role === "Project Admin"
-    //           ? await contractWithWallet.verifyPAs(merkleProof, singleParticipant)
-    //           : props.Role === "Campus Ambassador"
-    //             ? await contractWithWallet.verifyCAs(merkleProof, singleParticipant)
-    //             : props.Role === "Speaker"
-    //               ? await contractWithWallet.verifyOpenSourceAdvocates(
-    //                 merkleProof,
-    //                 singleParticipant
-    //               )
-    //               : props.Role === "Organizing Team"
-    //                 ? await contractWithWallet.verifyOrgTeam(merkleProof, singleParticipant)
-    //                 : false;
-
+    
     const toTheMoon = checkIfVerified(email);
 
     if (toTheMoon) {
@@ -267,22 +220,6 @@ const Certi_Comp = (props) => {
   }
 
   const Switcher = () => {
-    // var actor =
-    //   props.Role === "Contributor"
-    //     ? contributorsTree
-    //     : props.Role === "Top Contributor"
-    //       ? top100Tree
-    //       : props.Role === "Mentor"
-    //         ? mentorsTree
-    //         : props.Role === "Project Admin"
-    //           ? projectAdminsTree
-    //           : props.Role === "Campus Ambassador"
-    //             ? campusAmbassadorsTree
-    //             : props.Role === "Speaker"
-    //               ? openSourceAdvocatesTree
-    //               : props.Role === "Organizing Team"
-    //                 ? organizingTeamTree
-    //                 : "Diablo";
     Checker(props.Email);
   };
 
