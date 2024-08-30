@@ -21,16 +21,16 @@ const PopupBanner = ({ onClose }) => {
         />
         <div className="mt-4">
           <p className="text-2xl font-bold text-orange-600">
-            Postman Challenge is live now!!!
+            Hack Web3Conf India&apos;24!!!
           </p>
           <p className="text-lg text-gray-700">
-            Get Postman Badge
+            Let&apos;s dive into realm of web3
           </p>
 
           <div className="mt-4 gap-5 flex max-md:flex-col w-full items-center justify-center">
             <a
               className=""
-              href="https://www.postman.com/student-program/student-expert/?utm_campaign=PTS&utm_medium=referral&utm_source=external&utm_term=girlscript&utm_content=gssoc"
+              href="https://dorahacks.io/hackathon/hack-web3conf-24/detail"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -42,55 +42,19 @@ const PopupBanner = ({ onClose }) => {
                 Register Here
               </button>
             </a>
-            <a
-              className=""
-              href="https://gssoc24.github.io/Postman-Challenge/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button
-                id="CTA-button"
-                data-aos="fade-down"
-                className=" bg-gradient-to-b w-full from-primary_orange-0 to-orange-600 text-md text-white font-semibold px-4 py-4 rounded-2xl md:text-2xl md:py-2 hover:bg-gradient-to-t hover:from-primary_orange-0 hover:to-orange-600"
-              >
-                Instructions Link
-              </button>
-            </a>
           </div>
-          <div className="flex flex-row gap-4 mt-5 max-w-36 m-auto">
-            <a
-              href="https://www.linkedin.com/company/postman-platform/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="w-[36px] h-[36px]"
-                src="/LinkedInIcon.png"
-                alt="LinkedIn"
-              />
-            </a>
-            <a
-              href="https://x.com/getpostman"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="w-[36px] h-[36px]"
-                src="/TwitterIcon.png"
-                alt="Twitter"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/getpostman"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                className="w-[36px] h-[36px]"
-                src="/instagramlogo.png"
-                alt="instagram"
-              />
-            </a>
+          <div className="flex flex-row gap-4 mt-5 text-center m-auto">
+            <p className="text-lg text-gray-700 text-center m-auto">
+              To Be a part of Web3Conf&apos;24{" "}
+              <a
+                href="https://www.web3confindia.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary_orange-0 hover:text-orange-600 underline hover:no-underline hover:font-bold bg-none cursor-pointer hover:text-xl"
+              >
+                Book Now
+              </a>
+            </p>
           </div>
         </div>
       </div>
