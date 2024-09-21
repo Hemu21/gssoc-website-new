@@ -16,13 +16,13 @@
             "Twitter": "https://twitter.com/13_Saanjh",
             "LinkedIn": "https://www.linkedin.com/in/mohitvaru/"
         },
-        "SuvraneelBhuin": {
-            "Name": "Suvraneel Bhuin",
-            "Designation": "GirlScript Summer of Code'23 Advisor",
-            "Image": "https://github.com/Suvraneel.png",
-            "GitHub": "https://github.com/Suvraneel",
-            "Twitter": "https://twitter.com/SuvraneelB",
-            "LinkedIn": "https://www.linkedin.com/in/suvraneel"
+        "SowmiyaV": {
+            "Name": "Sowmiya V",
+            "Designation": "GSSoC'24 Extended Advisor",
+            "Image": "https://github.com/GSSoC24/.github/blob/main/assets/Sowmiya.jpeg?raw=true",
+            "GitHub": "https://github.com/sowmiyeh",
+            "Twitter": "https://x.com/sowmiyeh",
+            "LinkedIn": "https://www.linkedin.com/in/sowmiyavenkatesan/"
         },
         "SanjayViswanathan": {
             "Name": "Sanjay Viswanathan",
@@ -258,9 +258,11 @@
             "GitHub": " https://github.com/Meetjain1",
             "Twitter": "https://twitter.com/Meetjain_100",
             "LinkedIn": "https://linkedin.com/in/meet-jain-413015265/",
+            "Topmate": "https://topmate.io/meet_jain10",
+            "TopmateService": "https://topmate.io/meet_jain10/1209100/pay",
             "Instagram": "https://www.instagram.com/m.jain_17/",
             "Skills": ["Full-stack development", "CyberSecurity", "Blockchain development", "Problem Solving", "DSA"],
-            "Languages": ["C++", "JavaScript", "Python", "TypeScript", "MERN", "NextJS", "SvelteJS", "NestJS"],
+            "Languages": ["C++", "JavaScript", "Python", "TypeScript", "NextJS", "SvelteJS", "NestJS","NodeJS","ExpressJS","MongoDB","ReactJS"],
             "RecentActivity": "🏆Ranked #40 in GSSoC'24",
             "Sponsor": ""
         },
@@ -277,7 +279,7 @@
             "Instagram": "https://www.instagram.com/adityabhaumik123?igsh=MXAxb2k2ZXlmZGVncg==",
             "Topmate": "https://topmate.io/aditya1",
             "TopmateService": "https://topmate.io/aditya1/1202127/pay",
-            "Skills": ["Github", "Management", "Problem Solving"],
+            "Skills": ["Github", "Management", "Problem Solving", "Conflict Resolution", "Documentation", "Critical Thinking", "Data Analytics", "Machine Learning"],
             "Languages": ["HTML5", "CSS3", "JavaScript", "MySQL", "Python"],
             "RecentActivity":"🏆Ranked #10 in GSSoC'24",
             "Sponsor": ""
@@ -298,6 +300,19 @@
             "RecentActivity": "🏆Ranked #74 in GSSoC'24",
             "Sponsor": "https://github.com/sponsors/AKSHITHA-CHILUKA"
         },
+        "SnehaKumari": {
+            "Name": "Sneha Kumari",
+            "Designation": "Community Manager",
+            "Image": "https://github.com/GSSoC24/.github/blob/main/assets/Sneha%20Kumari.jpg?raw=true",
+            "Bio": "I recently completed my B.Tech from Meerut Institute of Technology in June 2024 and have since embarked on my professional journey at GHCL Limited, where I've been working for the past three months as a G.E.T-IT . I am Microsoft Certified and had the opportunity to intern with IBM, which has enriched my technical expertise. \n I am passionate about exploring new technologies, continuously learning, and expanding my knowledge, especially through open-source contributions. My Technical skills include Python, Data Analytics etc. where I have gained a solid understanding of Data Manipulation, Data Modeling nd VisualiZation & Python for solving problems. On the soft skills side, I excel in communication, problem-solving, and teamwork, making me adaptable to dynamic work environments. \n In my free time, I enjoy playing Badminton and actively contributing to open-source projects, which allows me to meet new people and explore new ideas. I am always eager to learn and grow, constantly seeking opportunities to connect with like-minded professionals and expand my potential in the tech world.",
+            "University": "Meerut Institute of Technology",
+            "Location": "Delhi",
+            "GitHub": " https://github.com/Snehsk",
+            "Twitter": "https://x.com/SnehaKumariSk1",
+            "LinkedIn": "https://www.linkedin.com/in/sneha-kumari1/",
+            "Skills": ["Problem Solving", "Critical Thinking", "Time management", "Team Management", "Teamwork", "Data Analytics", "Google AppScript"],
+            "Languages": ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Python"]
+        },
         "AnshikaTiwari": {
             "Name": "Anshika Tiwari",
             "Designation": "Content Writer",
@@ -311,20 +326,6 @@
             "Skills": ["Web Development", "Problem Solving", "Communication"],
             "Languages": ["Python", "C++", "Java", "HTML5", "CSS3", "JavaScript", "SQL", "MongoDB", "NodeJS"],
             "RecentActivity": "🏆Ranked #496 in GSSoC'24",
-            "Sponsor": ""
-        },
-        "NikitaTiwari": {
-            "Name": "Nikita Tiwari",
-            "Designation": "Content Writer",
-            "Image": "https://github.com/GSSoC24/.github/blob/main/assets/Nikita%20Tiwari.jpg?raw=true",
-            "Bio": "I'm a developer passionate about programming and enjoy tackling challenges in data structures, algorithms, and web development. I'm constantly working on enhancing my skills through coding and aptitude challenges.",
-            "University": "College Of Engineering Roorkee, Haridwar, Uttarakhand",
-            "Location": "Uttar Pradesh",
-            "GitHub": "https://github.com/nikki-05",
-            "LinkedIn": "https://www.linkedin.com/in/nikita-tewari-56999b249",
-            "Skills": ["Problem Solving", "Team Collaboration", "Adaptability"],
-            "Languages": ["Java", "HTML5", "CSS3", "JavaScript", "ReactJS", "NodeJS", "PowerBI"],
-            "RecentActivity": "🏆Ranked #159 in GSSoC'24",
             "Sponsor": ""
         },
         "AslamSayyad": {
